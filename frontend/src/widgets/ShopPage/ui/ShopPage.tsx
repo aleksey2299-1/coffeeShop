@@ -1,7 +1,9 @@
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import {
   ContentWrapper,
+  ExtraInfo,
   Header,
+  PriceContainer,
   Product,
   ProductCircle,
   ProductsWrapper,
@@ -83,7 +85,9 @@ const ShopPage: FC<ShopPageProps> = ({ pay, currentProduct, setCurrentProduct, s
           <ContentWrapper $triangleMiddle={currentMiddleTabPont}>
             <div style={{ position: 'relative', minHeight: 125 }}>
               <ProductCircle $color={activeTab.color} />
-              <p style={{ fontSize: 83, position: 'absolute', zIndex: 2 }}>{activeTab.name}</p>
+              <p style={{ fontSize: 83, position: 'absolute', zIndex: 2, lineHeight: 1.75 }}>
+                {activeTab.name}
+              </p>
             </div>
             <ProductsWrapper>
               {activeTab.products.map((product, index) => (
@@ -94,17 +98,34 @@ const ShopPage: FC<ShopPageProps> = ({ pay, currentProduct, setCurrentProduct, s
                     setOpenModal(true);
                   }}
                 >
-                  <img src={product.image} style={{ height: 280 }} />
+                  <div style={{ position: 'relative' }}>
+                    <img src={product.image} style={{ height: 280 }} />
+                    {product.x2 && (
+                      <ExtraInfo>
+                        <p style={{ fontSize: 50, fontWeight: 600 }}>2x</p>
+                      </ExtraInfo>
+                    )}
+                  </div>
                   <div>
-                    <p style={{ fontSize: 32 }}>{product.name}</p>
-                    <p style={{ fontSize: 40, fontWeight: 700 }}>
-                      от{' '}
-                      {product.price.toLocaleString('ru-RU', {
-                        style: 'currency',
-                        currency: 'RUB',
-                        maximumFractionDigits: 0,
-                      })}
-                    </p>
+                    <p style={{ fontSize: 32, textAlign: 'center' }}>{product.name}</p>
+                    <PriceContainer>
+                      <p
+                        style={{
+                          fontSize: 40,
+                          fontWeight: 700,
+                          lineHeight: '48px',
+                        }}
+                      >
+                        от
+                      </p>
+                      <p style={{ fontSize: 60, lineHeight: '60px' }}>
+                        {product.price.toLocaleString('ru-RU', {
+                          style: 'currency',
+                          currency: 'RUB',
+                          maximumFractionDigits: 0,
+                        })}
+                      </p>
+                    </PriceContainer>
                   </div>
                 </Product>
               ))}

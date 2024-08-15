@@ -93,4 +93,17 @@ const StyledText = styled.p<{ $size: number }>`
   font-size: ${(props) => props.$size}px;
 `;
 
-export { Overlay, Container, CloseButton, Grid, CupWrapper, Button, StyledText };
+const ExtraInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  background-color: ${colors.primaryYellow};
+`;
+
+export { Overlay, Container, CloseButton, Grid, CupWrapper, Button, StyledText, ExtraInfo };

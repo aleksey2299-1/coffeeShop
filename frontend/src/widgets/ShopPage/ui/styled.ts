@@ -139,6 +139,26 @@ const WrapWarp = styled.div`
   overflow: hidden;
 `;
 
+const PriceContainer = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: end;
+  justify-content: center;
+`;
+
+const ExtraInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  background-color: ${colors.primaryYellow};
+`;
+
 export {
   Wrapper,
   Header,
@@ -152,4 +172,6 @@ export {
   TabCircle,
   ProductCircle,
   WrapWarp,
+  PriceContainer,
+  ExtraInfo,
 };

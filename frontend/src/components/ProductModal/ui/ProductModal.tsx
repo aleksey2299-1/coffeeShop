@@ -1,5 +1,14 @@
 import { Dispatch, FC, SetStateAction, useState } from 'react';
-import { Button, CloseButton, Container, CupWrapper, Grid, Overlay, StyledText } from './styled';
+import {
+  Button,
+  CloseButton,
+  Container,
+  CupWrapper,
+  ExtraInfo,
+  Grid,
+  Overlay,
+  StyledText,
+} from './styled';
 
 interface ProductModalProps {
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -19,7 +28,14 @@ const ProductModal: FC<ProductModalProps> = ({ setOpen, product, pay, setPrice }
         <CloseButton onClick={() => setOpen(false)}>
           <img src="/cross.svg" />
         </CloseButton>
-        <img src={product.image} />
+        <div style={{ position: 'relative' }}>
+          <img src={product.image} />
+          {product.x2 && (
+            <ExtraInfo>
+              <p style={{ fontSize: 50, fontWeight: 600 }}>2x</p>
+            </ExtraInfo>
+          )}
+        </div>
         <StyledText $size={82}>{product.name}</StyledText>
         <Grid>
           {cups.map((cup, index) => (

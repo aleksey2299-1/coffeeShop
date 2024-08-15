@@ -21,7 +21,7 @@ export const tabs = [
     products: coffeeProducts,
   },
   {
-    name: 'Морс \nили газ. напиток',
+    name: 'Морс или\n газ. напиток',
     image: '/other.png',
     color: colors.backgroundOther,
     products: coffeeProducts,

@@ -1,6 +1,6 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { Emulator } from '../../Emulator/emulator';
-import { Button, ButtonsContainer, Container } from './styled';
+import { Button, Container } from './styled';
 
 interface CardPaymentProps {
   emulator: Emulator;
@@ -34,9 +34,9 @@ const CardPayment: FC<CardPaymentProps> = ({ emulator, price, makeProduct, pay, 
     <>
       <Container>
         <img src="/card.svg" />
-        <p style={{ whiteSpace: 'pre-wrap', alignSelf: 'center' }}>{text}</p>
+        <p style={{ whiteSpace: 'pre-wrap', alignSelf: 'center', textAlign: 'center' }}>{text}</p>
       </Container>
-      <ButtonsContainer>
+      <Container>
         <Button
           onClick={() => {
             emulator.BankCardCancel();
@@ -45,7 +45,7 @@ const CardPayment: FC<CardPaymentProps> = ({ emulator, price, makeProduct, pay, 
           Внести наличные
         </Button>
         <Button onClick={() => pay(false)}>Отмена</Button>
-      </ButtonsContainer>
+      </Container>
     </>
   );
 };

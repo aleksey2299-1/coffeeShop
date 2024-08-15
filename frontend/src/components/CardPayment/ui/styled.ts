@@ -5,12 +5,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const ButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 30px;
 `;
 
@@ -33,4 +27,4 @@ const Button = styled.button`
   }
 `;
 
-export { Container, ButtonsContainer, Button };
+export { Container, Button };

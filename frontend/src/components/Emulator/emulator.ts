@@ -56,7 +56,7 @@ export class Emulator {
     cb: (result: boolean) => void,
     display_cb: (message: string) => void
   ) {
-    console.log('Транзакция на сумму: ' + amount);
+    console.log(`Нажмите "Enter" для начала транзакции на сумму ${amount}, "Escape" для отмены`);
     display_cb('Приложите карту к терминалу');
     this.bankCardTransactionActive = true;
 
@@ -138,7 +138,7 @@ export class Emulator {
     );
 
     this.vendHandler = action((event: KeyboardEvent) => {
-      if (event.key === 'x' || event.key === 'X') {
+      if (event.key === 'x' || event.key === 'X' || event.key === 'ч' || event.key === 'Ч') {
         this.clearTimeouts();
         cb(false);
         console.log('Ошибка при выдаче продукта.');
